@@ -210,3 +210,6 @@ target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
 
 add_executable(solution2 src/solution2.cpp)
 target_link_libraries(solution2 ${catkin_LIBRARIES})
+
+add_executable(cloud_transform src/cloud_transform.cpp)
+target_link_libraries(cloud_transform ${catkin_LIBRARIES})
