@@ -207,3 +207,6 @@ include_directories(
 
 add_executable(tf_broadcaster src/tf_broadcaster.cpp)
 target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
+
+add_executable(solution2 src/solution2.cpp)
+target_link_libraries(solution2 ${catkin_LIBRARIES})
