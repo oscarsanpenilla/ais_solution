@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     tf::TransformListener listener;
 
     ros::Subscriber cloud_sub = node.subscribe("pot_cloud", 100, cloudCallback);
-    ros::Publisher cloud_pub = node.advertise<sensor_msgs::PointCloud>("transformed_cloud",50);
+    ros::Publisher cloud_pub = node.advertise<sensor_msgs::PointCloud>("transformed_cloud", 50);
 
     ros::Rate rate(10.0);
     while (node.ok())
@@ -34,16 +34,15 @@ int main(int argc, char **argv)
         sensor_msgs::PointCloud pointCloudTrans;
         try
         {
-
-        listener.transformPointCloud("world",pointCloud,pointCloudTrans);
-        cloud_pub.publish(pointCloudTrans);
+            listener.waitForTransform("world", "base_laser_link", ros::Time::now(), ros::Duration(0.5));
+            listener.transformPointCloud("world", pointCloud, pointCloudTrans);
+            cloud_pub.publish(pointCloudTrans);
         }
         catch (tf::TransformException ex)
         {
             ROS_ERROR("%s", ex.what());
             ros::Duration(1.0).sleep();
         }
-
 
         ros::spinOnce();
         rate.sleep();
