@@ -1,7 +1,7 @@
 <!-- Demonstation of obstacle detector -->
 <launch>
 	<param name="use_sim_time" value="true" />
-    <node pkg="rosbag" type="play" name="player" output="screen" args="--loop --clock ../bagfiles/pot-and-static-objects.bag"/>
+    <node pkg="rosbag" type="play" name="player" output="screen" args="--loop --clock ../bagfiles/pot-and-dynamic-objects.bag"/>
     <node pkg="ais_solution" type="solution2" name="solution2" output="screen" />
 	<node pkg="ais_solution" type="cloud_solution" name="cloud_solution" output="screen" />
 	<node name="map_to_scanner_base" pkg="tf2_ros" type="static_transform_publisher" args="0 0 0 0 0 0 world map" />
@@ -76,6 +76,6 @@
 		</rosparam> -->
 		<param name="frame_id" value="world" />
 	</node>
-	<node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find obstacle_detector)/resources/obstacle_detector.rviz" />
+	<node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find ais_solution)/launch/obstacle_detector.rviz" />
 </launch>
 <!--  -->
