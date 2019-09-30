@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   tf
+  obstacle_detector
 )
 
 ## System dependencies are found with CMake's conventions
@@ -213,3 +214,6 @@ target_link_libraries(solution2 ${catkin_LIBRARIES})
 
 add_executable(cloud_transform src/cloud_transform.cpp)
 target_link_libraries(cloud_transform ${catkin_LIBRARIES})
+
+add_executable(cloud_solution src/cloud_solution.cpp)
+target_link_libraries(cloud_solution ${catkin_LIBRARIES})
