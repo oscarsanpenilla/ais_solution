@@ -209,8 +209,8 @@ include_directories(
 add_executable(tf_broadcaster src/tf_broadcaster.cpp)
 target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
 
-add_executable(solution2 src/solution2.cpp)
-target_link_libraries(solution2 ${catkin_LIBRARIES})
+add_executable(tf_broadcaster_compleat src/tf_broadcaster_compleat.cpp)
+target_link_libraries(tf_broadcaster_compleat ${catkin_LIBRARIES})
 
 add_executable(cloud_transform src/cloud_transform.cpp)
 target_link_libraries(cloud_transform ${catkin_LIBRARIES})
