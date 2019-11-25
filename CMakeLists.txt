@@ -217,3 +217,6 @@ target_link_libraries(cloud_transform ${catkin_LIBRARIES})
 
 add_executable(cloud_solution src/cloud_solution.cpp)
 target_link_libraries(cloud_solution ${catkin_LIBRARIES})
+
+add_executable(laser_transformer src/laser_transformer.cpp)
+target_link_libraries(laser_transformer ${catkin_LIBRARIES})

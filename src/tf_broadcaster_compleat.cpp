@@ -1,6 +1,8 @@
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
+#include <tf/transform_listener.h>
 #include <geometry_msgs/PoseStamped.h>
+#include <sensor_msgs/LaserScan.h>
 
 
 float mrk_pose_x;
@@ -24,10 +26,6 @@ void poseCallback(const geometry_msgs::PoseStamped msg)
     // std::cout << msg << std::endl;
 }
 
-void cloudCallback(){
-
-}
-
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "solution2");
@@ -38,7 +36,7 @@ int main(int argc, char **argv)
 
     ros::Subscriber vrpn_sub = node.subscribe("vrpn_client_node/BT/pose", 100, poseCallback);
 
-    ros::Rate rate(10.0);
+    ros::Rate rate(30.0);
     while (node.ok())
     {
         tf::Quaternion q;
